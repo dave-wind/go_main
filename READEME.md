@@ -2,6 +2,6 @@
 > basic go
 
 ```go
-fmt.Println("go man")
+fmt.Println("Learning 《Go语言趣味指南》")
 
 ```
