@@ -62,21 +62,26 @@ nupon you be peace`)
 	// demo := '!' + 'A'
 	fmt.Printf("g-a+A = %c\n", demo)
 
+	fmt.Println("g 字符属于 rune int32 占内存字节数:", unsafe.Sizeof('g'))
+
+	var uintStr byte = 99
+	fmt.Println("byte声明的变量 占内存字节数:", unsafe.Sizeof(uintStr))
+
 	message := "shorm"
 	fmt.Println("len 内置函数 无需 import len返回的是变量的byte数", len(message), unsafe.Sizeof(message))
 
 	/****************RuneCountInString && DecodeRuneInString**********************/
 	/*
-		本例中，程序访问的是message这个字符串的每个字节（8位），可能没有考虑多字节的情况（16、32位）。•
+		本例中，程序访问的是message这个字符串的每个字节（8位），可能没有考虑每个字符 多字节的情况（16、32位）。•
 		如何支持西班牙语、俄语、汉语等？•把字符解码成rune类型，然后再进行操作。•
 		使用utf-8包，它提供可以按rune计算字符串长度的方法。•
 		DecodeRuneInString 函数会返回第一个字符，以及字符所占的字节数。•
 		所以Go 里的函数可以返回多个值。
 	*/
 	// 对于 非英文字符串 可以用 RuneCountInString 返回 真实字节长度
-	fmt.Println(utf8.RuneCountInString(message), "bytes")
+	fmt.Println("RuneCountInString 返回 真实字节长度:", utf8.RuneCountInString(message), "bytes")
 	r, size := utf8.DecodeRuneInString(message)
-	fmt.Println("message", r, size)
+	fmt.Println("shorm", "utf-8编码对应码值:", r, "字节size:", size)
 
 	/****************range****************/
 	question := "tíaíing"
