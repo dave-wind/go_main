@@ -59,7 +59,7 @@ func main() {
 	str := []string{"Dave", "Jones"}
 	// demo := terminarl("new", "Dave", "Jones")
 
-	// 解构 str 切片
+	// 解构 展开 str 切片 类似js的 {...obj}
 	demo := terminarl("New", str...)
 	fmt.Println("terminarl 结果:", demo, "容量：", cap(demo), "长度：", len(demo))
 }
@@ -75,3 +75,7 @@ func terminarl(prex string, world ...string) []string {
 	}
 	return newWords
 }
+
+// ...的作用：
+// 1.做函数的可变参数，2.自动识别数组长度 3.切片的展开 4. ..interface{} 任意类型转换
+
