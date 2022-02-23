@@ -21,6 +21,9 @@ func main() {
 
 	var k kelvin = 204
 	fmt.Println("k.celsius(1,2)", k.celsius(1, 2))
+
+	// 	声明函数类型
+	fmt.Println("声明函数类型:", mesureTemperature(10, demo))
 }
 
 /*
@@ -41,4 +44,16 @@ func kelvinToCelsius(k kelvin) celsius { // kelvinToCelsius 函数
 // 注意⚠️:方法只能有一个接收者 k 也可以作为参数
 func (k kelvin) celsius(e kelvin, d kelvin) celsius { // kelvin 类型的 celsius 方法
 	return celsius(k - e - d)
+}
+
+// 声明函数类型
+type sensor func() int
+
+func demo() int {
+	return 10
+}
+
+// 为函数声明类型 有助于 精简和明确 代码
+func mesureTemperature(samples int, s sensor) int {
+	return samples + s()
 }
