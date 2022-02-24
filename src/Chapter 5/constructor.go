@@ -37,4 +37,10 @@ func main() {
 	curiosity := newLocation(lat, long)
 	fmt.Println("curiosity:", curiosity)
 	fmt.Printf("由构造函数声明的curiosity:%+v \n", curiosity)
+
+	// New 函数
+
+	// 有一些用于构造的函数的名称就是 New(例如 errors 包里面的 New函数)。
+	//这是因为函数调用时使用 包名.函数名 的形式。
+	// 如果该函数叫 NewError，那么调用的时候就是errors.NewError()这就不如 errors.New()简洁
 }
