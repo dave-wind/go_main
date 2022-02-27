@@ -21,6 +21,6 @@ func main() {
 	timmy.superpower = "flying"
 	// 解引用 方式2: (*timmy).superpower = "flying"
 
-	fmt.Println("timmy---", timmy.age, timmy.superpower, timmy)
+	fmt.Println("timmy---", timmy.age, timmy.superpower, &timmy)
 
 }

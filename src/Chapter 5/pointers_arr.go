@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 指向 数组的指针
 
@@ -17,4 +19,14 @@ func main() {
 	fmt.Println(superpowers)
 	fmt.Println(superpowers[0])
 	fmt.Println(superpowers[1:2])
+
+	// 修改数组
+	var board [8][8]rune
+	reset(&board)
+	// fmt.Println(len(board), cap(board))
+	fmt.Printf("%c", board[0][0])
+}
+
+func reset(board *[8][8]rune) {
+	board[0][0] = 'r'
 }
