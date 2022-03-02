@@ -1,0 +1,2 @@
+Errors are valuesDon't communicate by sharing memory, share memory by communicating.
+The bigger the interface, the weaker the abstraction. interfacef says nothing.
