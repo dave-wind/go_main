@@ -35,7 +35,10 @@ func shout(t talker) {
 
 func main() {
 	shout(martian{})
-	shout(laser(2))
+
+	// 满足了 一个接口类型就可以执行该方法
+	r := laser(2)
+	shout(r)
 
 	curiosity := location{-4.5895, 137.4417}
 	// 因为在 location 类型上 定义了 String 方法
