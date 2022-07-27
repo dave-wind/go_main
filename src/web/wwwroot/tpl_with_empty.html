@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+</head>
+
+<body>
+    <div>The dot is {{ . }}</div>
+    {{ with ""}}
+    dot is set to {{ . }}
+    {{ else }}
+    dot is empty {{ . }}
+    {{ end }}
+</body>
+
+</html>

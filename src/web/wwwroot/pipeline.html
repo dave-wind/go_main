@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+</head>
+
+<body>
+  <!-- printf 有俩参数, 管道传递 会作为参数往下传递 -->
+  <div>管道</div>
+  {{ . | printf "%.2f" }}
+
+  <div>直接执行</div>
+  {{ printf "%.2f" . }}
+
+</body>
+
+</html>

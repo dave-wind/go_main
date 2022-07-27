@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+</head>
+
+<body>
+    <ul>
+        {{ range .}}
+        <li>Dot is set to the element {{.}}</li>
+        {{ end }}
+    </ul>
+    <div>以下为 在Action 中设置变量:</div>
+    <ul>
+        {{ range $key,$value:= .}}
+        <li data-key="{{$key}}">Dot is set to the element {{$value}}</li>
+        {{ end }}
+    </ul>
+</body>
+
+</html>

@@ -16,6 +16,12 @@ func main() {
 	}
 	server.ListenAndServe()
 
+	// 测试: 只生效一个 以下的不生效
+	sever2 := http.Server{
+		Addr:    "localhost:8083",
+		Handler: nil,
+	}
+	sever2.ListenAndServe()
 }
 
 /*
