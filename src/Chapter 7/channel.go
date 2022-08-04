@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+/**注意:
+for 循环 goroutine 顺序不可预知, range 是按顺序的
+
+
+
+
 // 通道(channel)
 // 1.可以在多个goroutine 之间安全的传值
 // 2.可以用作变量 函数参数 结构体字段...
@@ -27,7 +33,6 @@ func main() {
 	}
 	for i := 0; i < 1; i++ {
 		// 先一直等待,等到了接受通道里的值,就执行
-		// 一共执行五次
 		gopherID := <-c
 		fmt.Println("gopher:   ", gopherID, "has finished sleeping")
 	}
@@ -37,7 +42,7 @@ func main() {
 }
 
 func sleepGopher(id int, c chan int) {
-	time.Sleep(3 * time.Second)
+	time.Sleep(10 * time.Second)
 	fmt.Println("...snore...", id)
 	// id 值 传到通道里
 	c <- id
@@ -50,3 +55,18 @@ func sleepGopher(id int, c chan int) {
 
 // 文章:
 // https://segmentfault.com/a/1190000018719303
+
+/* 输出:
+
+...snore... 1
+...snore... 0
+...snore... 3
+gopher:    1 has finished sleeping
+gopher:    0 has finished sleeping
+gopher:    3 has finished sleeping
+...snore... 4
+gopher:    4 has finished sleeping
+...snore... 2
+gopher:    2 has finished sleeping
+
+*/

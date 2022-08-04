@@ -1,0 +1,44 @@
+{{ define "content"}}
+<a href="/companies/add" class="btn btn-primary float-right mb-3">添加</a>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">统一社会信用代码</th>
+      <th scope="col">公司全名</th>
+      <th scope="col">公司简称</th>
+      <th scope="col">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range $i, $c := .}}
+    <tr>
+      <th scope="row">{{ $i | add 1 }}</th>
+      <td>{{ $c.ID }}</td>
+      <td>{{ $c.Name }}</td>
+      <td>{{ $c.NickName }}</td>
+      <td>
+        <a href="/companies/edit/{{ $c.ID }}" target="_self">编辑</a>
+        <a class="del-btn ml-2" href="javascript:void(0)" data-id="{{$c.ID}}">删除</a>
+      </td>
+    </tr>
+    {{ end }}
+
+    <script>
+      $(document).ready(() => {
+        $(".del-btn").bind("click", (event) => {
+          if (confirm("确认删除？")) {
+            $.ajax({
+              url: `/companies/delete/${event.target.dataset.id}`,
+              type: "DELETE",
+              success: function (result) {
+                window.location.href = "/companies";
+              },
+            });
+          }
+        });
+      });
+    </script>
+  </tbody>
+</table>
+{{ end }}

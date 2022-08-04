@@ -1,0 +1,8 @@
+ POST http://localhost:8080/companies HTTP/1.1
+ content-Type: application/json
+
+ {
+    "id":123456,
+    "name":"Google",
+    "country":"USA"
+ }

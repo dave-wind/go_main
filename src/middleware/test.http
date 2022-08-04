@@ -1,0 +1,9 @@
+#### Without Auth
+
+GET http://localhost:8080/companies HTTP/1.1
+
+
+#### Without Auth
+
+GET http://localhost:8080/companies HTTP/1.1
+Authorization: abcd

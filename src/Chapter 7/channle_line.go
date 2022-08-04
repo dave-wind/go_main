@@ -17,7 +17,7 @@ func main() {
 }
 
 func sourceGopher(downstream chan string) {
-	for _, v := range []string{"hello world", "a bad apply", "goobye all"} {
+	for _, v := range []string{"hello world", "a bad apply", "goobye all", "A", "B", "C", "D"} {
 		fmt.Println("source----:", v)
 		downstream <- v
 	}
